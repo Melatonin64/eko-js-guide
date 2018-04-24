@@ -24,6 +24,7 @@ Motivation Statement - TBD
     + [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
     + [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
     + [Use UPPERCASE for Constants](#use-uppercase-for-constants)
+    + [Use verbs for function names](#use-verbs-for-function-names)
 - [Variables](#variables)
     + [Object/Array creation](#objectarray-creation)
 - [Conditionals](#conditionals)
@@ -419,6 +420,12 @@ const kSecondsInDay = 60 * 60 * 24;
 const SECONDS_IN_DAY = 60 * 60 * 24;
 ```
 
+### Use verbs for function names
+
+Function names should typically start with a verb (e.g. `sendMessage()`, `pause()`, `setValue()`).  
+
+Predicate functions (functions that return a Boolean value) are an exception, they should start with `is`, `are`, `has` etc (e.g. `isValid()`, `hasOwnProperty()`).
+
 ## Variables
 
 ### Object/Array creation
@@ -579,6 +586,7 @@ function myFunc() {
     if (someCondition) {
         return 0;
     }
+
     if (someOtherCondition) {
         return 1;
     }
