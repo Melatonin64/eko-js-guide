@@ -33,7 +33,8 @@ Motivation Statement - TBD
     + [Ternary expressions](#ternary-expressions)
 - [Functions](#functions)
     + [Keep it short](#keep-it-short)
-    + [Return early from functions](#return-early-from-functions)
+    + [Use exit clauses for invalid arguments](#use-exit-clauses-for-invalid-arguments)
+    + [Do not return mid function](#do-not-return-mid-function)
     + [Return statements inside if/else](#return-statements-inside-ifelse)
     + [Method chaining](#method-chaining)
 - [Comments](#comments)
@@ -533,11 +534,11 @@ let myVar = someCondition && someOtherCondition ?
 Try to keep your functions short.
 Aim for an upper limit of ~15 lines of code per function.
 
-### Return early from functions
+### Use exit clauses for invalid arguments
 
-To avoid deep nesting of `if` statements, always return a function's value as early as possible.
+To avoid deep nesting of `if` statements, always validate the arguments and return at the top (if needed).
 Use an exit clause (an `if` clause that returns or throws).
-Among other things, this is useful for argument validation and keeps the code looking cleaner by reducing unnecessary indentation.
+This keeps the code looking cleaner by reducing unnecessary indentation.
 
 **BAD**:
 ```javascript
@@ -558,6 +559,36 @@ function myFunc(myArg) {
     // Do stuff ...
 }
 ```
+
+### Do not return mid function
+
+For functions that return a value, apart from [exit clauses](#use-exit-clauses-for-invalid-arguments) at the top of the function's body,
+there should be a single return statement and it should be the last statement (at the bottom).  
+
+If a variable is needed in order to retain/process the return value, you may name it `retVal`.
+
+**GOOD**:
+```javascript
+function clampToRange(num, min, max) {
+    if (typeof num !== 'number' ||
+            typeof min !== 'number' ||
+            typeof max !== 'number' ||
+            min > max) {
+        throw new Error('Invalid arguments');
+    }
+
+    let retVal = num;
+
+    if (retVal < min) {
+        retVal = min;
+    } else if (retVal > max) {
+        retVal = max;
+    }
+
+    return retVal;
+}
+```
+
 
 ### Return statements inside if/else
 
