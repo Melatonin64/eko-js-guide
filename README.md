@@ -302,7 +302,8 @@ prefix.something.reallyLongFunctionName('whatever', (a1, a2) => {
     }
 });
 
-some.reallyLongFunctionCall(arg1, arg2, arg3)
+some
+    .reallyLongFunctionCall(arg1, arg2, arg3)
     .thatsWrapped()
     .then(function(result) {
         // Indent the function body +4 relative to the indentation depth
@@ -630,7 +631,7 @@ function myFunc() {
 ### Method chaining
 
 One method per line should be used if you want to chain methods.  
-You should indent these methods so it's easier to twell they are part of the same chain.
+You should indent these methods so it's easier to tell they are part of the same chain.
 
 **BAD**:
 ```javascript
