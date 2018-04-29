@@ -771,6 +771,41 @@ Always put requires at top of file to clearly illustrate a file's dependencies.
 Besides giving an overview for others at a quick glance of dependencies and possible memory impact, 
 it allows one to determine if they need a package.json file should they choose to use the file elsewhere.
 
+### Magic numbers & magic strings
+
+Numbers and strings that mean more than just their value (especially if used across a file or across multiple file) should be defined as constants or as values of a config. This helps collaborators know what the numbers and strings mean, makes it easy to change them in one place, and in the case of an enum has the added benefit of documenting all possible "options" in one place.
+
+**BAD**
+```javascript
+function showPrompt() {
+    let prompt = document.createElement('div')
+    prompt.innerHTML = 'Score 15 to win. Good luck!';
+    document.appendChild(prompt);
+}
+
+function onScoreUpdate(newScore) {
+    if (newScore > 15) {
+        game.win()
+    }
+}
+```
+
+**GOOD**
+```javascript
+const SCORE_TO_WIN = 15;
+
+function showPrompt() {
+    let prompt = document.createElement('div')
+    prompt.innerHTML = `Score ${SCORE_TO_WIN} to win. Good luck!`;
+    document.appendChild(prompt);
+}
+
+function onScoreUpdate(newScore) {
+    if (newScore > SCORE_TO_WIN) {
+        game.win()
+    }
+}
+```
 
 ## References
 
