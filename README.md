@@ -1,4 +1,4 @@
-# Eko JavaScript Coding Style Guidlines
+# Eko JavaScript Coding Style Guidelines
 
 Motivation Statement - TBD
 
@@ -67,7 +67,7 @@ Windows style newlines (`\r\n`) should not be used.
 
 ### No trailing whitespace
 
-Clean up any trailing whitespace before commiting.
+Clean up any trailing whitespace before committing.
 
 **BAD**:
 ```javascript
@@ -150,7 +150,7 @@ function identity(x) {
 
 Braces are required for all control structures (i.e. `if`, `else`, `for`, `while` as well as any others),
 even if body contains only a single statement.
-The first statement of a non-empty bloack must begin on its own line.
+The first statement of a non-empty block must begin on its own line.
 
 **BAD**:
 ```javascript
@@ -164,7 +164,7 @@ if (true) {
 }
 ```
 
-Braces follow the K&R/egyptian-brackets style for *nonempty* blocks and block-like constructs:
+Braces follow the K&R/Egyptian-brackets style for *nonempty* blocks and block-like constructs:
 
 - No line break before the opening brace.
 - Line break after the opening brace.
@@ -497,7 +497,7 @@ if (isValidPassword) {
 ### Ternary expressions
 
 Do not use ternary (conditional) operator with boolean values,
-the entire expression can be written more succintly without using a ternary operator.
+the entire expression can be written more succinctly without using a ternary operator.
 
 **BAD**:
 ```javascript
