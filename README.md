@@ -496,7 +496,7 @@ if (isValidPassword) {
 
 ### Ternary expressions
 
-Do not use ternary (conditional) operator with boolean values,
+Do not use ternary (conditional) expressions that evaluate to boolean values,
 the entire expression can be written more succinctly without using a ternary operator.
 
 **BAD**:
