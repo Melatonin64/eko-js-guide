@@ -44,6 +44,7 @@ Motivation Statement - TBD
 - [Misc](#misc)
     + [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
     + [Requires at top](#requires-at-top)
+    + [Magic numbers and strings](#magic-numbers-and-strings)
 - [References](#references)
 
 
@@ -771,9 +772,10 @@ Always put requires at top of file to clearly illustrate a file's dependencies.
 Besides giving an overview for others at a quick glance of dependencies and possible memory impact, 
 it allows one to determine if they need a package.json file should they choose to use the file elsewhere.
 
-### Magic numbers & magic strings
+### Magic numbers and strings
 
-Numbers and strings that mean more than just their value (especially if used across a file or across multiple file) should be defined as constants or as values of a config. This helps collaborators know what the numbers and strings mean, makes it easy to change them in one place, and in the case of an enum has the added benefit of documenting all possible "options" in one place.
+Numbers and strings that mean more than just their value (especially if used across a file or across multiple file) should be defined as constants or as values of a config.
+This helps collaborators know what the numbers and strings mean, makes it easy to change them in one place, and in the case of an enum has the added benefit of documenting all possible "options" in one place.
 
 **BAD**
 ```javascript
