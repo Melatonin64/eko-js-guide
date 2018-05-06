@@ -37,6 +37,7 @@ Motivation Statement - TBD
     + [Do not return mid function](#do-not-return-mid-function)
     + [Return statements inside if/else](#return-statements-inside-ifelse)
     + [Method chaining](#method-chaining)
+    + [Name anonymous functions](#name-anonymous-functions)
 - [Comments](#comments)
     + [File description at top](#file-description-at-top)
     + [Code regions](#code-regions)
@@ -91,8 +92,9 @@ Use a single empty line:
       Such blank lines are used as needed to create *logical groupings* of fields.
 - Within function bodies, sparingly to create *logical groupings* of statements.
 - Blank lines at the start or end of a function body are not allowed.
+- To separate 3rd party requires from local file requires (see [Requires at top](#requires-at-top)).
 
-*Multiple* consecutive blank lines are permitted, but never required.
+You should never use more than 2 consecutive blank lines.
 
 ### Spacing
 
@@ -180,7 +182,7 @@ function doNothing() {}
 
 ### Avoid long lines
 
-Lines that are longer than 80 characters should be avoided.
+Lines that are longer than 96 characters should be avoided.
 Consider line-wrapping, or shortening the line by defining additional variables for partial expressions.  
 There might be some exceptions to this, for instance, a long URL should not be broken into separate lines if it exceeds the column limit.
 
@@ -194,7 +196,7 @@ if (rect.x >= 0 && rect.y >= 0 && rect.width >= 0 && rect.width <= 1920 && rect.
 
 **GOOD**:
 ```javascript
-var rectIsValid =
+var isRectValid =
         rect.x >= 0 &&
         rect.y >= 0 &&
         rect.width >= 0 &&
@@ -202,7 +204,7 @@ var rectIsValid =
         rect.height >= 0 &&
         rect.height <= 1280;
 
-if (rectIsValid) {
+if (isRectValid) {
     // Do something
 }
 ```
@@ -287,6 +289,23 @@ if (x > 0) {
 }
 ```
 
+The one exception to this rule, would be if you'd like to comment an entire clause, in which case using line breaks is allowed, like so:
+
+**GOOD**:
+```javascript
+// If we've found a pre-existing duplicate segment loader, use it and increment its reference count
+if (duplicateSegLoader) {
+    this.segMap[segment.id] = duplicateSegLoader;
+    this.segMap[segment.id].refCount++;
+}
+
+// Otherwise, create a new segment loader instance
+else {
+    this.segMap[segment.id] = segmentLoaderFactory.createSegmentLoader(segment);
+    this.segMap[segment.id].refCount = 1;
+}
+```
+
 ### Function expressions
 
 When declaring an anonymous/arrow function as an argument to another function call, the body of the anonymous function should be indented +4 spaces.
@@ -320,7 +339,8 @@ some
 As with other blocks, the contents of a switch block are indented +4.
 The contents of `case` and `default` clauses should be further indented +4.  
 
-Braces for `case`/`default` clauses are optional, but should be used if clause contains lexical declarations (e.g. `let`, `const`).  
+Each non-empty `case`/`default` clause must be wrapped in braces.
+This will prevent issues in cases where clause contains lexical declarations (e.g. `let`, `const`).  
 
 A `default` clause must be present and must be last, even if it doesn't do anything.
 Each clause must end with either `break`, `return`, `throw` or a `// fall-through` comment.
@@ -329,19 +349,23 @@ An empty line between cases is optional.
 **GOOD**:
 ```javascript
 switch (animal) {
+    case Animal.SNARK:
+    case Animal.JUBJUB:
     case Animal.BANDERSNATCH: {
         let x = 2;
-        handleBandersnatch(x);
+        handleCreature(x);
         break;
     }
 
-    case Animal.JABBERWOCK:
+    case Animal.JABBERWOCK: {
         handleJabberwock();
         // fall-through
+    }
 
-    default:
+    default: {
         console.log('coolio');
         break;
+    }
 }
 ```
 
@@ -648,6 +672,12 @@ myArr
     .forEach(x => console.log(x));
 ```
 
+### Name anonymous functions
+
+Whenever it makes sense to do so, name your anonymous functions.
+This will help to demystify stack traces when debugging.
+Note that there are some cases where naming an anonymous function might not make sense, use your best judgment.
+
 ## Comments
 
 ### File description at top
@@ -770,7 +800,19 @@ function myFunc(arr) {
 
 Always put requires at top of file to clearly illustrate a file's dependencies.
 Besides giving an overview for others at a quick glance of dependencies and possible memory impact, 
-it allows one to determine if they need a package.json file should they choose to use the file elsewhere.
+it allows one to determine if they need a package.json file should they choose to use the file elsewhere.  
+
+3rd party require statements should be on top, and a blank line should separate them from local file requires.
+
+**GOOD**:
+```javascript
+const exec = require('child_process').exec;
+const minimist = require('minimist');
+
+const utils = require('./lib/utils');
+
+// ... Rest of code goes here
+```
 
 ### Magic numbers and strings
 
