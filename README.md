@@ -822,14 +822,14 @@ This helps collaborators know what the numbers and strings mean, makes it easy t
 **BAD**
 ```javascript
 function showPrompt() {
-    let prompt = document.createElement('div')
+    let prompt = document.createElement('div');
     prompt.innerHTML = 'Score 15 to win. Good luck!';
     document.appendChild(prompt);
 }
 
 function onScoreUpdate(newScore) {
     if (newScore > 15) {
-        game.win()
+        game.win();
     }
 }
 ```
@@ -839,14 +839,14 @@ function onScoreUpdate(newScore) {
 const SCORE_TO_WIN = 15;
 
 function showPrompt() {
-    let prompt = document.createElement('div')
+    let prompt = document.createElement('div');
     prompt.innerHTML = `Score ${SCORE_TO_WIN} to win. Good luck!`;
     document.appendChild(prompt);
 }
 
 function onScoreUpdate(newScore) {
     if (newScore > SCORE_TO_WIN) {
-        game.win()
+        game.win();
     }
 }
 ```
