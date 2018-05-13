@@ -25,8 +25,10 @@ Motivation Statement - TBD
     + [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
     + [Use UPPERCASE for Constants](#use-uppercase-for-constants)
     + [Use verbs for function names](#use-verbs-for-function-names)
+    + [Prefer the positive form](#prefer-the-positive-form)
 - [Variables](#variables)
     + [Object/Array creation](#objectarray-creation)
+    + [Avoid variable shadowing](#avoid-variable-shadowing)
 - [Conditionals](#conditionals)
     + [Use strict equality](#use-strict-equality)
     + [Use descriptive conditions](#use-descriptive-conditions)
@@ -43,9 +45,13 @@ Motivation Statement - TBD
     + [Code regions](#code-regions)
     + [Code comments](#code-comments)
 - [Misc](#misc)
+    + [Use strict mode](#use-strict-mode)
     + [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
     + [Requires at top](#requires-at-top)
+    + [Exports at bottom](#exports-at-bottom)
     + [Magic numbers and strings](#magic-numbers-and-strings)
+    + [Do not pass members as arguments](#do-not-pass-members-as-arguments)
+    + [No redundant promises](#no-redundant-promises)
 - [References](#references)
 
 
@@ -104,6 +110,7 @@ A single whitespace character should be used for:
 - Separating any reserved word (such as `else` or `catch`) from a closing curly brace (`}`) that precedes it on that line.
 - Before any open curly brace (`{`)
     + Exception: Do not use a space before an object literal that is the first argument of a function or the first element in an array literal (e.g. `foo({a: [{c: 'd'}]})`).
+- Separating the braces of a single line object literal from its contents (i.e. `{ color: 'white' }`).
 - On both sides of any binary (e.g. `-`, `&&`, `+=`) or ternary (`cond ? a : b`) operator.
 - After a comma (`,`) or semicolon (`;`). Note that spaces are *never* allowed before these characters.
 - After the colon (`:`) in an object literal.
@@ -453,12 +460,18 @@ Function names should typically start with a verb (e.g. `sendMessage()`, `pause(
 
 Predicate functions (functions that return a Boolean value) are an exception, they should start with `is`, `are`, `has` etc (e.g. `isValid()`, `hasOwnProperty()`).
 
+### Prefer the positive form
+
+When naming variables, members or methods, prefer to use the positive form (as opposed to the negative form).
+For instance, `setEnabled()` would be a better method name than `setDisabled()`.
+
 ## Variables
 
 ### Object/Array creation
 
-Use the literal syntax for object creation (i.e. don't ever use `new Object()`);  
-Use trailing commas and put *short* declarations on a single line.  
+Use the literal syntax for object creation (i.e. don't ever use `new Object()`);
+Use of trailing commas is optional but encouraged.
+Put *short* declarations on a single line.
 Only quote keys when your interpreter complains.
 
 **BAD**:
@@ -477,6 +490,40 @@ let b = {
     color: 'black',
     'background-color': 'white',
 };
+```
+
+### Avoid variable shadowing
+
+Do not declare variables in an inner scope that are already defined in an outer scope.
+This will keep the code more readable by eliminating ambiguity.
+
+**BAD**:
+```javascript
+let x = 2;
+
+function sum(x, y) {
+    return x + y;
+}
+```
+
+**GOOD**:
+```javascript
+let x = 2;
+
+function sum(num1, num2) {
+    return num1 + num2;
+}
+```
+
+If you'd like to keep a reference to a variable that's passed in as an argument to a function, add a trailing underscore (`_`) to the argument's name.
+
+**GOOD**:
+```javascript
+let player;
+
+function setPlayer(player_) {
+    player = player_;
+}
 ```
 
 ## Conditionals
@@ -771,6 +818,11 @@ someFunction(obviousParam, true /* shouldRender */, 'hello' /* name */);
 
 ## Misc
 
+### Use strict mode
+
+Every JS file must have a `'use strict'` statement at the top.
+Read more about JavaScript's [strict mode here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode).
+
 ### Define variables in the smallest scope required
 
 Define variables in the smallest scope in which they are used, and closest to where they're first needed.
@@ -814,6 +866,26 @@ const utils = require('./lib/utils');
 // ... Rest of code goes here
 ```
 
+### Exports at bottom
+
+All the exported module values should be grouped together at the bottom of the file.
+
+**GOOD**:
+```javascript
+// ... Module's implementation
+
+// ========================================================
+// Exported API
+// ========================================================
+
+module.exports = {
+    getCoolio: function() {
+        return 'coolio';
+    }
+};
+
+```
+
 ### Magic numbers and strings
 
 Numbers and strings that mean more than just their value (especially if used across a file or across multiple file) should be defined as constants or as values of a config.
@@ -848,6 +920,70 @@ function onScoreUpdate(newScore) {
     if (newScore > SCORE_TO_WIN) {
         game.win();
     }
+}
+```
+
+### Do not pass members as arguments
+
+Do not pass memeber variables as arguments to functions that already have access to the members.
+As a rule, you should always try to keep state (member variables) to a minimum.
+However, the member variables you do have should not be passed into methods that have access to them.
+
+**BAD**
+```javascript
+function Person(firstName_, lastName_) {
+    this.firstName = firstName_;
+    this.lastName = lastName_;
+
+    this.getFullName = function(firstName, lastName) {
+        return firstName + ' ' + lastName;
+    };
+}
+```
+
+**GOOD**
+```javascript
+function Person(firstName_, lastName_) {
+    this.firstName = firstName_;
+    this.lastName = lastName_;
+
+    this.getFullName = function() {
+        return this.firstName + ' ' + this.lastName;
+    };
+}
+```
+
+### No redundant promises
+
+Do not construct new Promises unless you absolutely have to.
+If the value you're returning is already a Promise, just return it.
+Double check if the library you're using also includes a promise based API.
+If it does, use it instead of constructing a new Promise.
+
+**BAD**
+```javascript
+const fs = require('fs');
+
+function readFile(filepath) {
+    return new Promise(function(resolve, reject) {
+        fs.readFile(filepath, function(err, data) {
+            if (err) {
+                reject(err)
+                return;
+            }
+
+            resolve(data);
+        });
+    });
+}
+```
+
+**GOOD**
+```javascript
+const fsPromises = require('fs').promises;
+
+function readFile(filepath) {
+    return fsPromises.readFile(filepath);
 }
 ```
 
