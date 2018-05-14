@@ -119,7 +119,9 @@ A single whitespace character should be used for:
 **BAD**:
 ```javascript
 let x=2*(y-1);
+let obj={color:'black'};
 calc(x,y,z);
+
 
 if(x>0){
     console.log('coolio');
@@ -129,6 +131,7 @@ if(x>0){
 **GOOD**:
 ```javascript
 let x = 2 * (y - 1);
+let obj = { color: 'black' };
 calc(x, y, z);
 
 if (x > 0) {
@@ -469,9 +472,9 @@ For instance, `setEnabled()` would be a better method name than `setDisabled()`.
 
 ### Object/Array creation
 
-Use the literal syntax for object creation (i.e. don't ever use `new Object()`);
-Use of trailing commas is optional but encouraged.
-Put *short* declarations on a single line.
+Use the literal syntax for object creation (i.e. don't ever use `new Object()`).  
+Using trailing commas is optional but encouraged.  
+Put *short* declarations on a single line.  
 Only quote keys when your interpreter complains.
 
 **BAD**:
@@ -494,15 +497,15 @@ let b = {
 
 ### Avoid variable shadowing
 
-Do not declare variables in an inner scope that are already defined in an outer scope.
-This will keep the code more readable by eliminating ambiguity.
+Do not declare variables in an inner scope that are already defined in an outer scope.  
+This will promote readability by eliminating ambiguity.
 
 **BAD**:
 ```javascript
 let x = 2;
 
-function sum(x, y) {
-    return x + y;
+function pow2(x) {
+    return x * x;
 }
 ```
 
@@ -510,8 +513,8 @@ function sum(x, y) {
 ```javascript
 let x = 2;
 
-function sum(num1, num2) {
-    return num1 + num2;
+function pow2(num) {
+    return num * num;
 }
 ```
 
@@ -931,26 +934,26 @@ However, the member variables you do have should not be passed into methods that
 
 **BAD**
 ```javascript
-function Person(firstName_, lastName_) {
-    this.firstName = firstName_;
-    this.lastName = lastName_;
-
-    this.getFullName = function(firstName, lastName) {
-        return firstName + ' ' + lastName;
-    };
+function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
 }
+
+Person.prototype.getFullName = function getFullName(firstName, lastName) {
+    return firstName + ' ' + lastName;
+};
 ```
 
 **GOOD**
 ```javascript
-function Person(firstName_, lastName_) {
-    this.firstName = firstName_;
-    this.lastName = lastName_;
-
-    this.getFullName = function() {
-        return this.firstName + ' ' + this.lastName;
-    };
+function Person(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
 }
+
+Person.prototype.getFullName = function getFullName() {
+    return this.firstName + ' ' + this.lastName;
+};
 ```
 
 ### No redundant promises
