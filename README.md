@@ -4,57 +4,55 @@ Motivation Statement - TBD
 
 ## Table of contents
 
-- [Eko JavaScript Coding Style Guidelines](#eko-javascript-coding-style-guidelines)
-    - [Table of contents](#table-of-contents)
-    - [Formatting](#formatting)
-        - [4 Spaces for Indentation](#4-spaces-for-indentation)
-        - [Unix newlines](#unix-newlines)
-        - [No trailing whitespace](#no-trailing-whitespace)
-        - [Blank lines](#blank-lines)
-        - [Spacing](#spacing)
-        - [Use semicolons](#use-semicolons)
-        - [Use braces for all control structures (yes, even one-liners)](#use-braces-for-all-control-structures-yes--even-one-liners)
-        - [Avoid long lines](#avoid-long-lines)
-        - [Use single quotes](#use-single-quotes)
-        - [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
-        - [Declare one variable per line](#declare-one-variable-per-line)
-        - [Else/catch/finally clauses go on same line as previous closing bracket](#else-catch-finally-clauses-go-on-same-line-as-previous-closing-bracket)
-        - [Function expressions](#function-expressions)
-        - [Switch statements](#switch-statements)
-        - [Line wrapping](#line-wrapping)
-    - [Naming Conventions](#naming-conventions)
-        - [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables--properties-and-function-names)
-        - [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
-        - [Use UPPERCASE for Constants](#use-uppercase-for-constants)
-        - [Use verbs for function names](#use-verbs-for-function-names)
-        - [Prefer the positive form](#prefer-the-positive-form)
-    - [Variables](#variables)
-        - [Object/Array creation](#object-array-creation)
-        - [Avoid variable shadowing](#avoid-variable-shadowing)
-    - [Conditionals](#conditionals)
-        - [Use strict equality](#use-strict-equality)
-        - [Use descriptive conditions](#use-descriptive-conditions)
-        - [Ternary expressions](#ternary-expressions)
-    - [Functions](#functions)
-        - [Keep it short](#keep-it-short)
-        - [Use exit clauses for invalid arguments](#use-exit-clauses-for-invalid-arguments)
-        - [Do not return mid function](#do-not-return-mid-function)
-        - [Return statements inside if/else](#return-statements-inside-if-else)
-        - [Method chaining](#method-chaining)
-        - [Name anonymous functions](#name-anonymous-functions)
-    - [Comments](#comments)
-        - [File description at top](#file-description-at-top)
-        - [Code regions](#code-regions)
-        - [Code comments](#code-comments)
-    - [Misc](#misc)
-        - [Use strict mode](#use-strict-mode)
-        - [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
-        - [Requires at top](#requires-at-top)
-        - [Exports at bottom](#exports-at-bottom)
-        - [Magic numbers and strings](#magic-numbers-and-strings)
-        - [Do not pass members as arguments](#do-not-pass-members-as-arguments)
-        - [No redundant promises](#no-redundant-promises)
-    - [References](#references)
+- [Formatting](#formatting)
+    + [4 Spaces for Indentation](#4-spaces-for-indentation)
+    + [Unix newlines](#unix-newlines)
+    + [No trailing whitespace](#no-trailing-whitespace)
+    + [Blank lines](#blank-lines)
+    + [Spacing](#spacing)
+    + [Use semicolons](#use-semicolons)
+    + [Use braces for all control structures (yes, even one-liners)](#use-braces-for-all-control-structures-yes-even-one-liners)
+    + [Avoid long lines](#avoid-long-lines)
+    + [Use single quotes](#use-single-quotes)
+    + [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
+    + [Declare one variable per line](#declare-one-variable-per-line)
+    + [Else/catch/finally clauses go on same line as previous closing bracket](#elsecatchfinally-clauses-go-on-same-line-as-previous-closing-bracket)
+    + [Function expressions](#function-expressions)
+    + [Switch statements](#switch-statements)
+    + [Line wrapping](#line-wrapping)
+- [Naming Conventions](#naming-conventions)
+    + [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
+    + [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
+    + [Use UPPERCASE for Constants](#use-uppercase-for-constants)
+    + [Use verbs for function names](#use-verbs-for-function-names)
+    + [Prefer the positive form](#prefer-the-positive-form)
+- [Variables](#variables)
+    + [Object/Array creation](#objectarray-creation)
+    + [Avoid variable shadowing](#avoid-variable-shadowing)
+- [Conditionals](#conditionals)
+    + [Use strict equality](#use-strict-equality)
+    + [Use descriptive conditions](#use-descriptive-conditions)
+    + [Ternary expressions](#ternary-expressions)
+- [Functions](#functions)
+    + [Keep it short](#keep-it-short)
+    + [Use exit clauses for invalid arguments](#use-exit-clauses-for-invalid-arguments)
+    + [Do not return mid function](#do-not-return-mid-function)
+    + [Return statements inside if/else](#return-statements-inside-ifelse)
+    + [Method chaining](#method-chaining)
+    + [Name anonymous functions](#name-anonymous-functions)
+- [Comments](#comments)
+    + [File description at top](#file-description-at-top)
+    + [Code regions](#code-regions)
+    + [Code comments](#code-comments)
+- [Misc](#misc)
+    + [Use strict mode](#use-strict-mode)
+    + [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
+    + [Requires at top](#requires-at-top)
+    + [Exports at bottom](#exports-at-bottom)
+    + [Magic numbers and strings](#magic-numbers-and-strings)
+    + [Do not pass members as arguments](#do-not-pass-members-as-arguments)
+    + [No redundant promises](#no-redundant-promises)
+- [References](#references)
 
 
 ## Formatting
@@ -301,16 +299,18 @@ if (x > 0) {
 }
 ```
 
-If you feel that the code would be more readable if each clause would be commented separately, you can add inline comments inside the clause itself, ¸like so:
+The one exception to this rule, would be if you'd like to comment an entire clause, in which case using line breaks is allowed, like so:
 
 **GOOD**:
 ```javascript
+// If we've found a pre-existing duplicate segment loader, use it and increment its reference count
 if (duplicateSegLoader) {
-    // If we've found a pre-existing duplicate segment loader, use it and increment its reference count
     this.segMap[segment.id] = duplicateSegLoader;
     this.segMap[segment.id].refCount++;
-} else {
-    // Otherwise, create a new segment loader instance
+}
+
+// Otherwise, create a new segment loader instance
+else {
     this.segMap[segment.id] = segmentLoaderFactory.createSegmentLoader(segment);
     this.segMap[segment.id].refCount = 1;
 }
