@@ -299,18 +299,16 @@ if (x > 0) {
 }
 ```
 
-The one exception to this rule, would be if you'd like to comment an entire clause, in which case using line breaks is allowed, like so:
+If you feel that the code would be more readable if each clause would be commented separately, you can add inline comments inside the clause itself, ¸like so:
 
 **GOOD**:
 ```javascript
-// If we've found a pre-existing duplicate segment loader, use it and increment its reference count
 if (duplicateSegLoader) {
+    // If we've found a pre-existing duplicate segment loader, use it and increment its reference count
     this.segMap[segment.id] = duplicateSegLoader;
     this.segMap[segment.id].refCount++;
-}
-
-// Otherwise, create a new segment loader instance
-else {
+} else {
+    // Otherwise, create a new segment loader instance
     this.segMap[segment.id] = segmentLoaderFactory.createSegmentLoader(segment);
     this.segMap[segment.id].refCount = 1;
 }
