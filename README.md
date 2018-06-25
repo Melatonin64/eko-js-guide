@@ -192,7 +192,7 @@ function doNothing() {}
 
 ### Avoid long lines
 
-Lines that are longer than 96 characters should be avoided.
+Lines that are longer than 120 characters should be avoided.
 Consider line-wrapping, or shortening the line by defining additional variables for partial expressions.  
 There might be some exceptions to this, for instance, a long URL should not be broken into separate lines if it exceeds the column limit.
 
