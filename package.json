@@ -2,7 +2,7 @@
   "name": "eko-js-guide",
   "version": "1.0.0",
   "description": "Eko JavaScript style guide and ESLint config",
-  "repository": "https://bitbucket.org/interludedecs/eko-js-guide.git",
+  "repository": "https://bitbucket.org/interludedevs/eko-js-guide.git",
   "author": "Eko Dev Team <dev@helloeko.com>",
   "license": "MIT",
   "private": true
