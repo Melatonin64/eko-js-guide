@@ -39,6 +39,9 @@
         // https://eslint.org/docs/rules/no-console
         "no-console": ["error", { "allow": ["error"] }],
 
+        // https://eslint.org/docs/rules/no-empty
+        "no-empty": ["error", { "allowEmptyCatch": true }],
+
         // https://eslint.org/docs/rules/valid-jsdoc
         // TODO - valid-jsdoc
 
@@ -122,9 +125,10 @@
         "no-magic-numbers": ["error", {
             "ignore": [
                 0, 1, -1,
-                10, 100, 1000, 10000, 100000, 1000000,
-                1024, 8, 2,
-                24, 60
+                10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000,
+                2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048,
+                24, 60,
+                0.5, 0.25, 1.5
             ]
         }],
 
@@ -213,7 +217,7 @@
         ///////////////////////////////////////////////////////////////////////////////////
 
         // https://eslint.org/docs/rules/no-shadow
-        "no-shadow": ["error", { "builtinGlobals": true, "hoist": "all", "allow": [] }],
+        "no-shadow": ["error", { "builtinGlobals": true, "hoist": "functions", "allow": [] }],
 
         // https://eslint.org/docs/rules/no-shadow-restricted-names
         "no-shadow-restricted-names": "error",
@@ -364,7 +368,7 @@
 
         // https://eslint.org/docs/rules/max-lines
         "max-lines": ["warn", {
-            "max": 500,
+            "max": 700,
             "skipBlankLines": true,
             "skipComments": true
         }],
