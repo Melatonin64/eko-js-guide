@@ -217,7 +217,7 @@
         ///////////////////////////////////////////////////////////////////////////////////
 
         // https://eslint.org/docs/rules/no-shadow
-        "no-shadow": ["error", { "builtinGlobals": true, "hoist": "functions", "allow": [] }],
+        "no-shadow": ["error", { "builtinGlobals": true, "hoist": "functions", "allow": ["name"] }],
 
         // https://eslint.org/docs/rules/no-shadow-restricted-names
         "no-shadow-restricted-names": "error",
