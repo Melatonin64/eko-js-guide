@@ -390,7 +390,7 @@ The following rules apply when line-wrapping:
     + This does not apply to the "dot" (`.`), which is not actually an operator.
 - When invoking a function, the function name must stay attached to the open parenthesis that follows it (`(`).
 - A comma (`,`) stays attached to the token that precedes it.
-- Continuation lines should be indented at least +8 spaces (could be more, but must be a multiple of 4)
+- Continuation lines should be indented at least +4 spaces (could be more, but must be a multiple of 4)
 
 **GOOD**:
 ```javascript
