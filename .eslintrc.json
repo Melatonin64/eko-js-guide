@@ -291,6 +291,9 @@
         // https://eslint.org/docs/rules/func-name-matching
         "func-name-matching": ["warn", "always"],
 
+        // https://eslint.org/docs/rules/function-paren-newline
+        "function-paren-newline": ["warn", "consistent"],
+
         // https://eslint.org/docs/rules/implicit-arrow-linebreak
         "implicit-arrow-linebreak": ["warn", "beside"],
 
