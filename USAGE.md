@@ -141,9 +141,26 @@ Identify the smallest root folder where the changes are required, and add a `.es
     // Make sure to specify a correct relative path to our shared config
     "extends": "./relative/path/to/node_modules/eko-js-guide/.eslintrc.json",
 
+    // Override envs
+    "env": {
+
+        // Add AMD environment (treat define() and require() as globals)
+        "amd": true,
+
+        // Add mocha globals
+        "mocha": true
+    },
+
+    // Add some extra globals
+    "globals": {
+        "InterludePlayer": true,
+        "TweenMax": true
+    },
+
+    // Override some rules
     "rules": {
 
-        // Override the "no-console" rule in order to allow using console
+        // Disable the "no-console" rule in order to allow using console
         "no-console": "off"
     }
 }
