@@ -73,6 +73,27 @@ $ yarn add --dev eslint-loader
 - Install [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) via package control
 - Install [SublimeLinter-eslint](https://github.com/SublimeLinter/SublimeLinter-eslint) via package control
 
+The following are some useful Sublime Text settings, that should help ease some of the pain of conforming with our style:
+
+```javascript
+{
+  // The number of spaces a tab is considered equal to
+  "tab_size": 4,
+
+  // Set to true to insert spaces when tab is pressed
+  "translate_tabs_to_spaces": true,
+
+  // Set to true to ensure the last line of the file ends in a newline
+  // character when saving
+  "ensure_newline_at_eof_on_save": true,
+
+  // Determines what character(s) are used to terminate each line in new files.
+  // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
+  // 'unix' (LF only).
+  "default_line_ending": "unix"
+}
+```
+
 ## Disabling\Overriding Rules
 
 The ESLint config is meant to help you by surfacing potential issues early and helping you keep your code tidy, consistent and readable.
@@ -182,3 +203,10 @@ More info on configuring ESLint can be found [here](https://eslint.org/docs/user
   ```bash
   $ yarn upgrade --latest eko-js-guide
   ```
+
+## Troubleshooting
+
+### I need to re-apply the fix for line endings whenever I switch git branches
+
+This is probably because you're using Windows and git is configured to automatically use CRLF line endings.
+You can disable this git behavior by opening a `cmd` prompt and running `git config --global core.autocrlf false`.
