@@ -11,7 +11,7 @@ $ sudo yarn global add eslint
 - Add this repo as a dev dependency:  
   `yarn add --dev https://buildy:buildyinterlude@bitbucket.org/interludedevs/eko-js-guide.git`
 - Add a `.eslintrc.json` file to the root of your project with the following contents:  
-  ```javascript
+  ```
   {
       "extends": "./node_modules/eko-js-guide/.eslintrc.json"
   }
