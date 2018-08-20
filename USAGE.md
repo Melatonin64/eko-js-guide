@@ -68,6 +68,31 @@ $ yarn add --dev eslint
 $ yarn add --dev eslint-loader
 ```
 
+## Visual Studio Code Integration
+- Install [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) VSCode extension from the marketplace.
+
+The following are some useful VSCode settings, that should help ease some of the pain of conforming with our style:
+
+```javascript
+{
+    // The number of spaces a tab is equal to.
+    // This setting is overridden based on the file contents when `editor.detectIndentation` is on.
+    "editor.tabSize": 4,
+
+    // Insert spaces when pressing `Tab`.
+    // This setting is overridden based on the file contents when `editor.detectIndentation` is on.
+    "editor.insertSpaces": true,
+
+    // When enabled, insert a final new line at the end of the file when saving it.
+    "files.insertFinalNewline": true,
+
+    // The default end of line character.
+    //  - \n: LF
+    //  - \r\n: CRLF
+    "files.eol": "\n"
+}
+```
+
 ## Sublime Text Integration
 
 - Install [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) via package control
@@ -196,11 +221,11 @@ More info on configuring ESLint can be found [here](https://eslint.org/docs/user
 ## Upgrading
 
 - To upgrade the global eslint to latest version, use:  
-  ```bash
+  ```
   $ sudo yarn global upgrade eslint --latest
   ```
 - To upgrade to latest Eko ESLint config, in your project's root, run:  
-  ```bash
+  ```
   $ yarn upgrade --latest eko-js-guide
   ```
 
