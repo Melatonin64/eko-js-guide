@@ -75,6 +75,14 @@ The following are some useful VSCode settings, that should help ease some of the
 
 ```javascript
 {
+    // Configure file associations to languages (e.g. `"*.extension": "html"`).
+    // These have precedence over the default associations of the languages installed.
+    "files.associations": {
+
+        // Allow comments in ESLint JSON config files
+        ".eslintrc.json": "jsonc"
+    },
+
     // The number of spaces a tab is equal to.
     // This setting is overridden based on the file contents when `editor.detectIndentation` is on.
     "editor.tabSize": 4,
