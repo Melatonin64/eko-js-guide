@@ -3,7 +3,7 @@
 ## Install ESLint globally
 
 ```bash
-$ sudo yarn global add eslint
+sudo yarn global add eslint@5.1.0
 ```
 
 ## Add Eko's ESLint config to your project
@@ -11,7 +11,8 @@ $ sudo yarn global add eslint
 - Add this repo as a dev dependency:  
   `yarn add --dev https://buildy:buildyinterlude@bitbucket.org/interludedevs/eko-js-guide.git`
 - Add a `.eslintrc.json` file to the root of your project with the following contents:  
-  ```
+
+  ```json
   {
       "extends": "./node_modules/eko-js-guide/.eslintrc.json"
   }
@@ -25,11 +26,13 @@ $ sudo yarn global add eslint
 ## Gulp integration
 
 Use [gulp-eslint](https://github.com/adametry/gulp-eslint):  
+
 ```bash
-$ yarn add --dev gulp-eslint
+yarn add --dev gulp-eslint
 ```
 
 Here's a usage example:
+
 ```javascript
 const gulp            = require('gulp');
 const eslint          = require('gulp-eslint');
@@ -63,12 +66,14 @@ function lint(glob, options = {}) {
 ## Webpack integration
 
 Use [eslint-loader](https://github.com/webpack-contrib/eslint-loader):  
+
 ```bash
-$ yarn add --dev eslint
-$ yarn add --dev eslint-loader
+yarn add --dev eslint
+yarn add --dev eslint-loader
 ```
 
 ## Visual Studio Code Integration
+
 - Install [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) VSCode extension from the marketplace.
 
 The following are some useful VSCode settings, that should help ease some of the pain of conforming with our style:
@@ -136,12 +141,14 @@ If after consideration you decide to ignore some rules, there are a few ways of 
 ### Inline comments
 
 You can disable a rule for a specific line by using `eslint-disable-line` and `eslint-disable-next-line` comments:
+
 ```javascript
 alert('This is allowed because of the comment to the right --->'); // eslint-disable-line no-alert
 
 // eslint-disable-next-line no-console
 console.log('ESLint will no longer complain about this line!');
 ```
+
 Note that you can specify multiple comma-separated rules to disable.
 If no specific rule is given, all rules will be disabled for that line.
 
@@ -229,12 +236,15 @@ More info on configuring ESLint can be found [here](https://eslint.org/docs/user
 ## Upgrading
 
 - To upgrade the global eslint to latest version, use:  
+
+  ```bash
+  sudo yarn global upgrade eslint --latest
   ```
-  $ sudo yarn global upgrade eslint --latest
-  ```
+
 - To upgrade to latest Eko ESLint config, in your project's root, run:  
-  ```
-  $ yarn upgrade --latest eko-js-guide
+
+  ```bash
+  yarn upgrade --latest eko-js-guide
   ```
 
 ## Troubleshooting

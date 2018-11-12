@@ -5,55 +5,54 @@ Motivation Statement - TBD
 ## Table of contents
 
 - [Formatting](#formatting)
-    + [4 Spaces for Indentation](#4-spaces-for-indentation)
-    + [Unix newlines](#unix-newlines)
-    + [No trailing whitespace](#no-trailing-whitespace)
-    + [Blank lines](#blank-lines)
-    + [Spacing](#spacing)
-    + [Use semicolons](#use-semicolons)
-    + [Use braces for all control structures (yes, even one-liners)](#use-braces-for-all-control-structures-yes-even-one-liners)
-    + [Avoid long lines](#avoid-long-lines)
-    + [Use single quotes](#use-single-quotes)
-    + [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
-    + [Declare one variable per line](#declare-one-variable-per-line)
-    + [Else/catch/finally clauses go on same line as previous closing bracket](#elsecatchfinally-clauses-go-on-same-line-as-previous-closing-bracket)
-    + [Function expressions](#function-expressions)
-    + [Switch statements](#switch-statements)
-    + [Line wrapping](#line-wrapping)
+  - [4 Spaces for Indentation](#4-spaces-for-indentation)
+  - [Unix newlines](#unix-newlines)
+  - [No trailing whitespace](#no-trailing-whitespace)
+  - [Blank lines](#blank-lines)
+  - [Spacing](#spacing)
+  - [Use semicolons](#use-semicolons)
+  - [Use braces for all control structures (yes, even one-liners)](#use-braces-for-all-control-structures-yes-even-one-liners)
+  - [Avoid long lines](#avoid-long-lines)
+  - [Use single quotes](#use-single-quotes)
+  - [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
+  - [Declare one variable per line](#declare-one-variable-per-line)
+  - [Else/catch/finally clauses go on same line as previous closing bracket](#elsecatchfinally-clauses-go-on-same-line-as-previous-closing-bracket)
+  - [Function expressions](#function-expressions)
+  - [Switch statements](#switch-statements)
+  - [Line wrapping](#line-wrapping)
 - [Naming Conventions](#naming-conventions)
-    + [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
-    + [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
-    + [Use UPPERCASE for Constants](#use-uppercase-for-constants)
-    + [Use verbs for function names](#use-verbs-for-function-names)
-    + [Prefer the positive form](#prefer-the-positive-form)
+  - [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
+  - [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
+  - [Use UPPERCASE for Constants](#use-uppercase-for-constants)
+  - [Use verbs for function names](#use-verbs-for-function-names)
+  - [Prefer the positive form](#prefer-the-positive-form)
 - [Variables](#variables)
-    + [Object/Array creation](#objectarray-creation)
-    + [Avoid variable shadowing](#avoid-variable-shadowing)
+  - [Object/Array creation](#objectarray-creation)
+  - [Avoid variable shadowing](#avoid-variable-shadowing)
 - [Conditionals](#conditionals)
-    + [Use strict equality](#use-strict-equality)
-    + [Use descriptive conditions](#use-descriptive-conditions)
-    + [Ternary expressions](#ternary-expressions)
+  - [Use strict equality](#use-strict-equality)
+  - [Use descriptive conditions](#use-descriptive-conditions)
+  - [Ternary expressions](#ternary-expressions)
 - [Functions](#functions)
-    + [Keep it short](#keep-it-short)
-    + [Use exit clauses for invalid arguments](#use-exit-clauses-for-invalid-arguments)
-    + [Do not return mid function](#do-not-return-mid-function)
-    + [Return statements inside if/else](#return-statements-inside-ifelse)
-    + [Method chaining](#method-chaining)
-    + [Name anonymous functions](#name-anonymous-functions)
+  - [Keep it short](#keep-it-short)
+  - [Use exit clauses for invalid arguments](#use-exit-clauses-for-invalid-arguments)
+  - [Do not return mid function](#do-not-return-mid-function)
+  - [Return statements inside if/else](#return-statements-inside-ifelse)
+  - [Method chaining](#method-chaining)
+  - [Name anonymous functions](#name-anonymous-functions)
 - [Comments](#comments)
-    + [File description at top](#file-description-at-top)
-    + [Code regions](#code-regions)
-    + [Code comments](#code-comments)
+  - [File description at top](#file-description-at-top)
+  - [Code regions](#code-regions)
+  - [Code comments](#code-comments)
 - [Misc](#misc)
-    + [Use strict mode](#use-strict-mode)
-    + [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
-    + [Requires at top](#requires-at-top)
-    + [Exports at bottom](#exports-at-bottom)
-    + [Magic numbers and strings](#magic-numbers-and-strings)
-    + [Do not pass members as arguments](#do-not-pass-members-as-arguments)
-    + [No redundant promises](#no-redundant-promises)
+  - [Use strict mode](#use-strict-mode)
+  - [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
+  - [Requires at top](#requires-at-top)
+  - [Exports at bottom](#exports-at-bottom)
+  - [Magic numbers and strings](#magic-numbers-and-strings)
+  - [Do not pass members as arguments](#do-not-pass-members-as-arguments)
+  - [No redundant promises](#no-redundant-promises)
 - [References](#references)
-
 
 ## Formatting
 
@@ -78,14 +77,16 @@ Windows style newlines (`\r\n`) should not be used.
 Clean up any trailing whitespace before committing.
 
 **BAD**:
+
 ```javascript
 // Some comment∙∙
 let x = 5;∙∙∙∙
 ```
 
 **GOOD**:
+
 ```javascript
-// Some comment 
+// Some comment
 let x = 5;  
 ```
 
@@ -94,8 +95,8 @@ let x = 5;
 Use a single empty line:
 
 - Between consecutive methods in a class or object literal.
-    + Exception: A blank line between two consecutive properties definitions in an object literal (with no other code between them) is optional.
-      Such blank lines are used as needed to create *logical groupings* of fields.
+  - Exception: A blank line between two consecutive properties definitions in an object literal (with no other code between them) is optional.
+    Such blank lines are used as needed to create *logical groupings* of fields.
 - Within function bodies, sparingly to create *logical groupings* of statements.
 - Blank lines at the start or end of a function body are not allowed.
 - To separate 3rd party requires from local file requires (see [Requires at top](#requires-at-top)).
@@ -109,7 +110,7 @@ A single whitespace character should be used for:
 - Separating any reserved word (such as `if`, `for` or `catch`) from an opening parenthesis (`(`) that follows it on that line.
 - Separating any reserved word (such as `else` or `catch`) from a closing curly brace (`}`) that precedes it on that line.
 - Before any open curly brace (`{`)
-    + Exception: Do not use a space before an object literal that is the first argument of a function or the first element in an array literal (e.g. `foo({a: [{c: 'd'}]})`).
+  - Exception: Do not use a space before an object literal that is the first argument of a function or the first element in an array literal (e.g. `foo({a: [{c: 'd'}]})`).
 - Separating the braces of a single line object literal from its contents (i.e. `{ color: 'white' }`).
 - On both sides of any binary (e.g. `-`, `&&`, `+=`) or ternary (`cond ? a : b`) operator.
 - After a comma (`,`) or semicolon (`;`). Note that spaces are *never* allowed before these characters.
@@ -117,6 +118,7 @@ A single whitespace character should be used for:
 - After a comment's double slash (`//`).
 
 **BAD**:
+
 ```javascript
 let x=2*(y-1);
 let obj={color:'black'};
@@ -129,6 +131,7 @@ if(x>0){
 ```
 
 **GOOD**:
+
 ```javascript
 let x = 2 * (y - 1);
 let obj = { color: 'black' };
@@ -141,17 +144,19 @@ if (x > 0) {
 
 ### Use semicolons
 
-Statements must be terminated with a semicolon, do not rely on automatic semicolon insertion. 
+Statements must be terminated with a semicolon, do not rely on automatic semicolon insertion.
 
 **BAD**:
+
 ```javascript
 let y = 5
 function identity(x) {
     return x
 };
-``` 
+```
 
 **GOOD**:
+
 ```javascript
 let x = 5;
 function identity(x) {
@@ -166,11 +171,13 @@ even if body contains only a single statement.
 The first statement of a non-empty block must begin on its own line.
 
 **BAD**:
+
 ```javascript
 if (true) console.log('coolio');
 ```
 
 **GOOD**:
+
 ```javascript
 if (true) {
     console.log('coolio');
@@ -183,9 +190,10 @@ Braces follow the K&R/Egyptian-brackets style for *nonempty* blocks and block-li
 - Line break after the opening brace.
 - Line break before the closing brace.
 - Line break after the closing brace *if* that brace terminates a statement or the body of a function.
-    + There is **no linebreak** after the brace if it is followed by `else`, `catch`, `finally` or a comma, semicolon or right-parenthesis.
+  - There is **no linebreak** after the brace if it is followed by `else`, `catch`, `finally` or a comma, semicolon or right-parenthesis.
 
 Note that empty blocks may be concise (closed immediately), like so:
+
 ```javascript
 function doNothing() {}
 ```
@@ -196,15 +204,16 @@ Lines that are longer than 120 characters should be avoided.
 Consider line-wrapping, or shortening the line by defining additional variables for partial expressions.  
 There might be some exceptions to this, for instance, a long URL should not be broken into separate lines if it exceeds the column limit.
 
-
 **BAD**:
+
 ```javascript
 if (rect.x >= 0 && rect.y >= 0 && rect.width >= 0 && rect.width <= 1920 && rect.height >= 0 && rect.height <= 1280) {
     // Do something
 }
-``` 
+```
 
 **GOOD**:
+
 ```javascript
 var isRectValid =
         rect.x >= 0 &&
@@ -224,11 +233,13 @@ if (isRectValid) {
 Use single quotes, unless you are writing JSON.
 
 **BAD**:
+
 ```javascript
 console.log("coolio");
 ```
 
 **GOOD**:
+
 ```javascript
 console.log('coolio');
 ```
@@ -239,6 +250,7 @@ Your opening braces go on the same line as the statement.
 There should be exactly one whitespace character preceding the opening brace.
 
 **BAD**:
+
 ```javascript
 if (true)
 {
@@ -247,6 +259,7 @@ if (true)
 ```
 
 **GOOD**:
+
 ```javascript
 if (true) {
     console.log('coolio');
@@ -259,11 +272,13 @@ Each variable should be declared in its own line with its own `var/let/const` st
 The one exception here would be `for` loops, where you can declare multiple comma-delimited variables required for iterations in a single line.
 
 **BAD**:
+
 ```javascript
 let a, b, c;
 ```
 
 **GOOD**:
+
 ```javascript
 let a;
 let b;
@@ -275,6 +290,7 @@ let c;
 An `else`, `catch` or `finally` clause should begin on the same line as previous closing bracket.
 
 **BAD**:
+
 ```javascript
 if (x > 0) {
     console.log('yay');
@@ -289,6 +305,7 @@ else {
 ```
 
 **GOOD**:
+
 ```javascript
 if (x > 0) {
     console.log('yay');
@@ -302,7 +319,9 @@ if (x > 0) {
 If you feel that the code would be more readable if each clause would be commented separately, you can add inline comments inside the clause itself, ¸like so:
 
 **GOOD**:
+
 ```javascript
+
 if (duplicateSegLoader) {
     // If we've found a pre-existing duplicate segment loader, use it and increment its reference count
     this.segMap[segment.id] = duplicateSegLoader;
@@ -319,6 +338,7 @@ if (duplicateSegLoader) {
 When declaring an anonymous/arrow function as an argument to another function call, the body of the anonymous function should be indented +4 spaces.
 
 **GOOD**:
+
 ```javascript
 prefix.something.reallyLongFunctionName('whatever', (a1, a2) => {
     // Indent the function body +4 relative to indentation depth
@@ -355,6 +375,7 @@ Each clause must end with either `break`, `return`, `throw` or a `// fall-throug
 An empty line between cases is optional.
 
 **GOOD**:
+
 ```javascript
 switch (animal) {
     case Animal.SNARK:
@@ -377,7 +398,6 @@ switch (animal) {
 }
 ```
 
-
 ### Line wrapping
 
 Line wrapping is defined as breaking a single expression into multiple lines.
@@ -387,12 +407,13 @@ Clear code is preferred over code that fits in the smallest number of lines.
 The following rules apply when line-wrapping:
 
 - When a line is broken at an operator, the break comes after the symbol.
-    + This does not apply to the "dot" (`.`), which is not actually an operator.
+  - This does not apply to the "dot" (`.`), which is not actually an operator.
 - When invoking a function, the function name must stay attached to the open parenthesis that follows it (`(`).
 - A comma (`,`) stays attached to the token that precedes it.
 - Continuation lines should be indented at least +4 spaces (could be more, but must be a multiple of 4)
 
 **GOOD**:
+
 ```javascript
 let myVar = x % 2 === 0 ?
                         'even' :
@@ -403,7 +424,6 @@ currentEstimate =
         2.0;
 ```
 
-
 ## Naming Conventions
 
 ### Use lowerCamelCase for variables, properties and function names
@@ -412,11 +432,13 @@ Variables, properties and function names should use `lowerCamelCase`.
 They should also be descriptive. Single character variables and uncommon abbreviations should generally be avoided.
 
 **BAD**:
+
 ```javascript
 let admin_user = db.query('SELECT * FROM users ...');
 ```
 
 **GOOD**:
+
 ```javascript
 let adminUser = db.query('SELECT * FROM users ...');
 ```
@@ -426,6 +448,7 @@ let adminUser = db.query('SELECT * FROM users ...');
 Class names should be capitalized using `UpperCamelCase`.
 
 **BAD**:
+
 ```javascript
 function bank_Account() {
 }
@@ -434,6 +457,7 @@ module.exports = bank_Account;
 ```
 
 **GOOD**:
+
 ```javascript
 function BankAccount() {
 }
@@ -446,11 +470,13 @@ module.exports = BankAccount;
 Constants should use `UNDERSCORE_DELIMITED_UPPERCASE`.
 
 **BAD**:
+
 ```javascript
 const kSecondsInDay = 60 * 60 * 24;
 ```
 
 **GOOD**:
+
 ```javascript
 const SECONDS_IN_DAY = 60 * 60 * 24;
 ```
@@ -476,6 +502,7 @@ Put *short* declarations on a single line.
 Only quote keys when your interpreter complains.
 
 **BAD**:
+
 ```javascript
 let a = [
     'hello', 'world'
@@ -485,6 +512,7 @@ let b = {"color": 'black'
 ```
 
 **GOOD**:
+
 ```javascript
 let a = ['hello', 'world'];
 let b = {
@@ -499,6 +527,7 @@ Do not declare variables in an inner scope that are already defined in an outer 
 This will promote readability by eliminating ambiguity.
 
 **BAD**:
+
 ```javascript
 let x = 2;
 
@@ -508,6 +537,7 @@ function pow2(x) {
 ```
 
 **GOOD**:
+
 ```javascript
 let x = 2;
 
@@ -519,6 +549,7 @@ function pow2(num) {
 If you'd like to keep a reference to a variable that's passed in as an argument to a function, add a trailing underscore (`_`) to the argument's name.
 
 **GOOD**:
+
 ```javascript
 let player;
 
@@ -534,6 +565,7 @@ function setPlayer(player_) {
 Always use `===` and `!==` operators (as opposed to `==` and `!=`).
 
 **BAD**:
+
 ```javascript
 if (0 == '') {
     console.log('OH NO!!!');
@@ -541,6 +573,7 @@ if (0 == '') {
 ```
 
 **GOOD**:
+
 ```javascript
 if (0 === '') {
     console.log('OH NO!!!');
@@ -552,6 +585,7 @@ if (0 === '') {
 Any non-trivial conditions should be assigned to a descriptively named variable or function.
 
 **BAD**:
+
 ```javascript
 if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
     console.log('coolio');
@@ -559,6 +593,7 @@ if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
 ```
 
 **GOOD**:
+
 ```javascript
 let isValidPassword = password.length >= 4 && /^(?=.*\d).{4,}$/.test(password);
 
@@ -573,6 +608,7 @@ Do not use ternary (conditional) expressions that evaluate to boolean values,
 the entire expression can be written more succinctly without using a ternary operator.
 
 **BAD**:
+
 ```javascript
 function myFunc(x) {
     return x === 3 ? true : false;
@@ -584,6 +620,7 @@ function myOtherFunc(x) {
 ```
 
 **GOOD**:
+
 ```javascript
 function myFunc(x) {
     return x === 3;
@@ -595,6 +632,7 @@ function myOtherFunc(x) {
 ```
 
 For long ternary expressions, you can line-wrap. Keep your operators at the end of lines, like so:
+
 ```javascript
 let myVar = someCondition && someOtherCondition ?
         'option a' :
@@ -615,6 +653,7 @@ Use an exit clause (an `if` clause that returns or throws).
 This keeps the code looking cleaner by reducing unnecessary indentation.
 
 **BAD**:
+
 ```javascript
 function myFunc(myArg) {
     if (myArg > 0) {
@@ -624,6 +663,7 @@ function myFunc(myArg) {
 ```
 
 **GOOD**:
+
 ```javascript
 function myFunc(myArg) {
     if (typeof myArg !== 'number' || myArg <= 0) {
@@ -642,6 +682,7 @@ there should be a single return statement and it should be the last statement (a
 If a variable is needed in order to retain/process the return value, you may name it `retVal`.
 
 **GOOD**:
+
 ```javascript
 function clampToRange(num, min, max) {
     if (typeof num !== 'number' ||
@@ -663,12 +704,12 @@ function clampToRange(num, min, max) {
 }
 ```
 
-
 ### Return statements inside if/else
 
 If an `if/else` clause contains a `return` (or `throw`) statement, do not use `else` for next clause.
 
 **BAD**:
+
 ```javascript
 function myFunc() {
     if (someCondition) {
@@ -686,6 +727,7 @@ function myFunc() {
 ```
 
 **GOOD**:
+
 ```javascript
 function myFunc() {
     if (someCondition) {
@@ -707,12 +749,14 @@ One method per line should be used if you want to chain methods.
 You should indent these methods so it's easier to tell they are part of the same chain.
 
 **BAD**:
+
 ```javascript
 myArr.filter(x => x > 0).map(x => x * 2)
 .forEach(x => console.log(x));
 ```
 
 **GOOD**:
+
 ```javascript
 myArr
     .filter(x => x > 0)
@@ -778,6 +822,7 @@ Make sure to comment any non-trivial code, and do not add extraneous comments.
 Whenever possible, try to write code that is self explanatory so it doesn't require comments.
 
 **BAD**:
+
 ```javascript
 //execute a regex
 var matches = item.match(/ID_([^\n]+)=([^\n]+)/);
@@ -797,6 +842,7 @@ someFunction(obviousParam, true, 'hello');
 ```
 
 **GOOD**:
+
 ```javascript
 // 'ID_SOMETHING=VALUE' -> ['ID_SOMETHING=VALUE', 'SOMETHING', 'VALUE']
 var matches = item.match(/ID_([^\n]+)=([^\n]+)/));
@@ -816,7 +862,6 @@ if (isSessionValid) {
 someFunction(obviousParam, true /* shouldRender */, 'hello' /* name */);
 ```
 
-
 ## Misc
 
 ### Use strict mode
@@ -829,6 +874,7 @@ Read more about JavaScript's [strict mode here](https://developer.mozilla.org/en
 Define variables in the smallest scope in which they are used, and closest to where they're first needed.
 
 **BAD**:
+
 ```javascript
 let i;
 let l;
@@ -841,6 +887,7 @@ function myFunc(arr) {
 ```
 
 **GOOD**:
+
 ```javascript
 function myFunc(arr) {
     for (let i = 0, l = arr.length; i < l; ++i) {
@@ -852,12 +899,13 @@ function myFunc(arr) {
 ### Requires at top
 
 Always put requires at top of file to clearly illustrate a file's dependencies.
-Besides giving an overview for others at a quick glance of dependencies and possible memory impact, 
+Besides giving an overview for others at a quick glance of dependencies and possible memory impact,
 it allows one to determine if they need a package.json file should they choose to use the file elsewhere.  
 
 3rd party require statements should be on top, and a blank line should separate them from local file requires.
 
 **GOOD**:
+
 ```javascript
 const exec = require('child_process').exec;
 const minimist = require('minimist');
@@ -872,6 +920,7 @@ const utils = require('./lib/utils');
 All the exported module values should be grouped together at the bottom of the file.
 
 **GOOD**:
+
 ```javascript
 // ... Module's implementation
 
@@ -892,7 +941,8 @@ module.exports = {
 Numbers and strings that mean more than just their value (especially if used across a file or across multiple file) should be defined as constants or as values of a config.
 This helps collaborators know what the numbers and strings mean, makes it easy to change them in one place, and in the case of an enum has the added benefit of documenting all possible "options" in one place.
 
-**BAD**
+**BAD**:
+
 ```javascript
 function showPrompt() {
     let prompt = document.createElement('div');
@@ -907,7 +957,8 @@ function onScoreUpdate(newScore) {
 }
 ```
 
-**GOOD**
+**GOOD**:
+
 ```javascript
 const SCORE_TO_WIN = 15;
 
@@ -930,7 +981,8 @@ Do not pass memeber variables as arguments to functions that already have access
 As a rule, you should always try to keep state (member variables) to a minimum.
 However, the member variables you do have should not be passed into methods that have access to them.
 
-**BAD**
+**BAD**:
+
 ```javascript
 function Person(firstName, lastName) {
     this.firstName = firstName;
@@ -942,7 +994,8 @@ Person.prototype.getFullName = function getFullName(firstName, lastName) {
 };
 ```
 
-**GOOD**
+**GOOD**:
+
 ```javascript
 function Person(firstName, lastName) {
     this.firstName = firstName;
@@ -961,7 +1014,8 @@ If the value you're returning is already a Promise, just return it.
 Double check if the library you're using also includes a promise based API.
 If it does, use it instead of constructing a new Promise.
 
-**BAD**
+**BAD**:
+
 ```javascript
 const fs = require('fs');
 
@@ -979,7 +1033,8 @@ function readFile(filepath) {
 }
 ```
 
-**GOOD**
+**GOOD**:
+
 ```javascript
 const fsPromises = require('fs').promises;
 
@@ -991,6 +1046,7 @@ function readFile(filepath) {
 ## References
 
 The eko style guide borrows (steals) from the following style guides:
+
 - [Google JS Guide](https://google.github.io/styleguide/jsguide.html)
 - [Node Style Guide](https://github.com/felixge/node-style-guide)
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
