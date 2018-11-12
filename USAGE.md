@@ -12,7 +12,7 @@ sudo yarn global add eslint@5.1.0
   `yarn add --dev https://buildy:buildyinterlude@bitbucket.org/interludedevs/eko-js-guide.git`
 - Add a `.eslintrc.json` file to the root of your project with the following contents:  
 
-  ```javascript
+  ```
   {
       "extends": "./node_modules/eko-js-guide/.eslintrc.json"
   }
@@ -237,13 +237,13 @@ More info on configuring ESLint can be found [here](https://eslint.org/docs/user
 
 - To upgrade the global eslint to latest version, use:  
 
-  ```bash
+  ```
   sudo yarn global upgrade eslint --latest
   ```
 
 - To upgrade to latest Eko ESLint config, in your project's root, run:  
 
-  ```bash
+  ```
   yarn upgrade --latest eko-js-guide
   ```
 
