@@ -5,53 +5,53 @@ Motivation Statement - TBD
 ## Table of contents
 
 - [Formatting](#formatting)
-  - [4 Spaces for Indentation](#4-spaces-for-indentation)
-  - [Unix newlines](#unix-newlines)
-  - [No trailing whitespace](#no-trailing-whitespace)
-  - [Blank lines](#blank-lines)
-  - [Spacing](#spacing)
-  - [Use semicolons](#use-semicolons)
-  - [Use braces for all control structures (yes, even one-liners)](#use-braces-for-all-control-structures-yes-even-one-liners)
-  - [Avoid long lines](#avoid-long-lines)
-  - [Use single quotes](#use-single-quotes)
-  - [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
-  - [Declare one variable per line](#declare-one-variable-per-line)
-  - [Else/catch/finally clauses go on same line as previous closing bracket](#elsecatchfinally-clauses-go-on-same-line-as-previous-closing-bracket)
-  - [Function expressions](#function-expressions)
-  - [Switch statements](#switch-statements)
-  - [Line wrapping](#line-wrapping)
+    + [4 Spaces for Indentation](#4-spaces-for-indentation)
+    + [Unix newlines](#unix-newlines)
+    + [No trailing whitespace](#no-trailing-whitespace)
+    + [Blank lines](#blank-lines)
+    + [Spacing](#spacing)
+    + [Use semicolons](#use-semicolons)
+    + [Use braces for all control structures (yes, even one-liners)](#use-braces-for-all-control-structures-yes-even-one-liners)
+    + [Avoid long lines](#avoid-long-lines)
+    + [Use single quotes](#use-single-quotes)
+    + [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
+    + [Declare one variable per line](#declare-one-variable-per-line)
+    + [Else/catch/finally clauses go on same line as previous closing bracket](#elsecatchfinally-clauses-go-on-same-line-as-previous-closing-bracket)
+    + [Function expressions](#function-expressions)
+    + [Switch statements](#switch-statements)
+    + [Line wrapping](#line-wrapping)
 - [Naming Conventions](#naming-conventions)
-  - [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
-  - [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
-  - [Use UPPERCASE for Constants](#use-uppercase-for-constants)
-  - [Use verbs for function names](#use-verbs-for-function-names)
-  - [Prefer the positive form](#prefer-the-positive-form)
+    + [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
+    + [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
+    + [Use UPPERCASE for Constants](#use-uppercase-for-constants)
+    + [Use verbs for function names](#use-verbs-for-function-names)
+    + [Prefer the positive form](#prefer-the-positive-form)
 - [Variables](#variables)
-  - [Object/Array creation](#objectarray-creation)
-  - [Avoid variable shadowing](#avoid-variable-shadowing)
+    + [Object/Array creation](#objectarray-creation)
+    + [Avoid variable shadowing](#avoid-variable-shadowing)
 - [Conditionals](#conditionals)
-  - [Use strict equality](#use-strict-equality)
-  - [Use descriptive conditions](#use-descriptive-conditions)
-  - [Ternary expressions](#ternary-expressions)
+    + [Use strict equality](#use-strict-equality)
+    + [Use descriptive conditions](#use-descriptive-conditions)
+    + [Ternary expressions](#ternary-expressions)
 - [Functions](#functions)
-  - [Keep it short](#keep-it-short)
-  - [Use exit clauses for invalid arguments](#use-exit-clauses-for-invalid-arguments)
-  - [Do not return mid function](#do-not-return-mid-function)
-  - [Return statements inside if/else](#return-statements-inside-ifelse)
-  - [Method chaining](#method-chaining)
-  - [Name anonymous functions](#name-anonymous-functions)
+    + [Keep it short](#keep-it-short)
+    + [Use exit clauses for invalid arguments](#use-exit-clauses-for-invalid-arguments)
+    + [Do not return mid function](#do-not-return-mid-function)
+    + [Return statements inside if/else](#return-statements-inside-ifelse)
+    + [Method chaining](#method-chaining)
+    + [Name anonymous functions](#name-anonymous-functions)
 - [Comments](#comments)
-  - [File description at top](#file-description-at-top)
-  - [Code regions](#code-regions)
-  - [Code comments](#code-comments)
+    + [File description at top](#file-description-at-top)
+    + [Code regions](#code-regions)
+    + [Code comments](#code-comments)
 - [Misc](#misc)
-  - [Use strict mode](#use-strict-mode)
-  - [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
-  - [Requires at top](#requires-at-top)
-  - [Exports at bottom](#exports-at-bottom)
-  - [Magic numbers and strings](#magic-numbers-and-strings)
-  - [Do not pass members as arguments](#do-not-pass-members-as-arguments)
-  - [No redundant promises](#no-redundant-promises)
+    + [Use strict mode](#use-strict-mode)
+    + [Define variables in the smallest scope required](#define-variables-in-the-smallest-scope-required)
+    + [Requires at top](#requires-at-top)
+    + [Exports at bottom](#exports-at-bottom)
+    + [Magic numbers and strings](#magic-numbers-and-strings)
+    + [Do not pass members as arguments](#do-not-pass-members-as-arguments)
+    + [No redundant promises](#no-redundant-promises)
 - [References](#references)
 
 ## Formatting
@@ -95,7 +95,7 @@ let x = 5;
 Use a single empty line:
 
 - Between consecutive methods in a class or object literal.
-  - Exception: A blank line between two consecutive properties definitions in an object literal (with no other code between them) is optional.
+    + Exception: A blank line between two consecutive properties definitions in an object literal (with no other code between them) is optional.
     Such blank lines are used as needed to create *logical groupings* of fields.
 - Within function bodies, sparingly to create *logical groupings* of statements.
 - Blank lines at the start or end of a function body are not allowed.
@@ -110,7 +110,7 @@ A single whitespace character should be used for:
 - Separating any reserved word (such as `if`, `for` or `catch`) from an opening parenthesis (`(`) that follows it on that line.
 - Separating any reserved word (such as `else` or `catch`) from a closing curly brace (`}`) that precedes it on that line.
 - Before any open curly brace (`{`)
-  - Exception: Do not use a space before an object literal that is the first argument of a function or the first element in an array literal (e.g. `foo({a: [{c: 'd'}]})`).
+    + Exception: Do not use a space before an object literal that is the first argument of a function or the first element in an array literal (e.g. `foo({a: [{c: 'd'}]})`).
 - Separating the braces of a single line object literal from its contents (i.e. `{ color: 'white' }`).
 - On both sides of any binary (e.g. `-`, `&&`, `+=`) or ternary (`cond ? a : b`) operator.
 - After a comma (`,`) or semicolon (`;`). Note that spaces are *never* allowed before these characters.
@@ -190,7 +190,7 @@ Braces follow the K&R/Egyptian-brackets style for *nonempty* blocks and block-li
 - Line break after the opening brace.
 - Line break before the closing brace.
 - Line break after the closing brace *if* that brace terminates a statement or the body of a function.
-  - There is **no linebreak** after the brace if it is followed by `else`, `catch`, `finally` or a comma, semicolon or right-parenthesis.
+    + There is **no linebreak** after the brace if it is followed by `else`, `catch`, `finally` or a comma, semicolon or right-parenthesis.
 
 Note that empty blocks may be concise (closed immediately), like so:
 
@@ -407,7 +407,7 @@ Clear code is preferred over code that fits in the smallest number of lines.
 The following rules apply when line-wrapping:
 
 - When a line is broken at an operator, the break comes after the symbol.
-  - This does not apply to the "dot" (`.`), which is not actually an operator.
+    + This does not apply to the "dot" (`.`), which is not actually an operator.
 - When invoking a function, the function name must stay attached to the open parenthesis that follows it (`(`).
 - A comma (`,`) stays attached to the token that precedes it.
 - Continuation lines should be indented at least +4 spaces (could be more, but must be a multiple of 4)
