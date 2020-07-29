@@ -3,13 +3,13 @@
 ## Install ESLint globally
 
 ```bash
-sudo yarn global add eslint@5.1.0
+npm i -g eslint
 ```
 
 ## Add Eko's ESLint config to your project
 
 - Add this repo as a dev dependency:  
-  `yarn add --dev https://buildy:buildyinterlude@bitbucket.org/interludedevs/eko-js-guide.git`
+  `yarn add --dev https://github.com/EkoLabs/eko-js-guide.git`
 - Add a `.eslintrc.json` file to the root of your project with the following contents:  
 
   ```
